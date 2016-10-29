@@ -128,10 +128,8 @@ include 'checklogin.php';
 	</script>
 </head>
 	<body>
-	<div style="padding:40px">
-		<div id="mensaje" style="background:lightblue">
-			<h4>Gestor Preguntas</h4>
-		</div>
+	<div style="padding:40px 40px 0px 40px">
+		<h4>Gestor Preguntas</h4>
 		<div id="onlineUsers" style="background:yellow;padding:20px"><span class="glyphicon glyphicon-lock"></span></div>
 		Ajax Version:
 		<div id="myQuestions" style="background:lightblue"></div>
@@ -139,7 +137,8 @@ include 'checklogin.php';
 		<div id="myQuestionsJQ" style="background:lightblue"></div>
 		<br><br>
 		<input type="button" value="Edicion Pregunta" onClick="mostrarRegistro()" class="btn btn-default">
-		<input type="button" value="Ver Preguntas" onClick="getPreguntas()" class="btn btn-default">
+		<input type="button" value="Ver Preguntas" onClick="getPreguntas()" class="btn btn-default"><br><br>		
+		<div id="mensaje" style="background:lightblue; margin-top:30px"><h4>Registra una Pregunta</h4></div>
 	</div>
 
 	<div id="contenido" style="padding:0px 40px 60px 40px">
