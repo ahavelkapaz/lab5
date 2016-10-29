@@ -1,0 +1,5 @@
+Este Lab:
+-	Hacer casos de prueba y crear el documento del apartado optativo
+
+To Do:
+-	Acoplar al Layout todas las funcionalidades

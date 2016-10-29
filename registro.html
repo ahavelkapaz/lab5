@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset="text/html;charset=iso-8859-15">
+		<script src="js/jquery-3.1.1.min.js"></script>
+		<script>
+		  var loadFile = function(event) {
+			var output = document.getElementById('output');
+			output.src = URL.createObjectURL(event.target.files[0]);
+		  };
+		  //Jquery functions
+		  $(document).ready(function(){
+
+			 $('#selectoptions').on('change',function(){
+				if( $(this).val()==="Otros"){
+				$(".hideme").show("slow")
+				}
+				else{
+				$(".hideme").hide()
+				}
+			}).change();
+			}); 
+		</script>
+		
+	</head>
+
+	<body>
+	
+		<form id='registro' name='registro' onSubmit="return checkValues()" action="registrar.php" method="POST" enctype="multipart/form-data">
+			<fieldset> 
+			<legend>Formulario de Registro</legend>
+			Nombre y Apellidos(*):<br>
+			<table>
+				<td><input type="text" name="nombre" id="nombre" pattern="([a-zA-Z]+)\s([a-zA-Z]+)\s{0,1}([a-zA-Z]*)" required title="Debes introducir tu nombre y uno o dos apellidos."></td>
+				<col width="80">
+				<td><img id="output" name="image2" style="max-height:500px;max-width:500px;width: expression(this.width > 500 ? 500: true);height: expression(this.height > 500 ? 500: true);"/></td>
+			</table>
+			<table><tr>
+			<td>
+			<br> Dirección de correo(*):<br>
+			<input type="text" name="email" id="email" pattern ="([a-zA-Z]{2,})\d{3}@(ikasle\.){0,1}ehu\.(eus|es)" required title="El correo debe tener el formato de la UPV/EHU">
+			</td><td>
+			<!-- Select Rol -->
+			<br><br>
+			  <label class="col-md-4 control-label" for="selectbasic">     Rol:</label>
+				<select id="selectrol" name="selectrol" class="form-control">
+				  <option value="alumno">Alumno</option>
+				  <option value="profesor">Profesor</option>
+				</select>
+			</td></tr></table>
+
+			<br> Password(*):<br>
+			<input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$@$!%*#?&]).{8,16}" required
+			title="Formato mínimo => 1 mayúscula, 1 minúscula, 1 dígito y 1 Carácter especial. La longitud debe ser entre 8 y 16 caracteres.">
+			
+			<br>Número de Teléfono(*):<br>
+			<input type="text" name="telefono" id="telefono" pattern="(\+[0-9]{2}){0,1}[0-9]{9,25}" required title="Introduce mínimo 9 dígitos (máximo 25). También puedes incluir prefijos del formato +NN, un número con prefijo será de esta forma: +34943121212 .">
+
+			<br>Especialidad<br>
+			<select name="selectoptions" id="selectoptions" >
+				<option value="Ingeniería del Software" selected>Ingeniería del Software</option>
+				<option value="Ingeniería de Computadores">Ingeniería de Computadores</option>
+				<option value="Computacióm">Computacióm</option>
+				<option value="Otros" >Otros</option>
+			</select>
+
+
+			<br>
+			<a class="hideme"> Introduce tu especialidad: </a><br>
+			<input class="hideme" id="hideotros" type="text" name="hideotros">
+			<br> 
+			<br>
+			
+			
+			<h4>Tecnologías y herramientas en las que está interesado:</h4>
+			<textarea name="tech" id="tech" rows="4" cols="50">
+			</textarea> 
+			
+			<br>
+			
+			Avatar:<br>
+			<input type="file" name="image" id="fileToUpload" accept="image/*" onchange="loadFile(event)">
+
+			</fieldset>
+			<br>
+			<input type="submit" id="registrarB" name="registrarB" value="Submit">
+		</form> 
+		<div id="mensaje" name="mensaje">
+		</div>
+	</body>
+	
+</html>
