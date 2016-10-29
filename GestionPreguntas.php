@@ -122,6 +122,12 @@ include 'checklogin.php';
 	XMLHttpRequestObject.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	XMLHttpRequestObject.send("op=insertarPregunta&question="+q+"&answer="+a+"&selectrate="+r+"&subject="+s);
 	op="insertarPregunta";
+	
+	//borrar formulario
+	document.getElementById('question').value = "";	
+	document.getElementById('answer').value = "";
+	document.getElementById('selectrate').selectedIndex = 0;
+	document.getElementById('subject').value = "";
 		
 	}
 
